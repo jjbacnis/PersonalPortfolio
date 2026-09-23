@@ -5,6 +5,15 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+
+    window.location.href = `mailto:jbacnis1@my.centennialcollege.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   };
 
@@ -28,22 +37,22 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="card contact-form">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
-                <input type="text" id="name" required placeholder="Your Full Name" />
+                <input type="text" id="name" name="name" required placeholder="Your Full Name" />
               </div>
 
               <div className="form-group">
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" required placeholder="your.email@example.com" />
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com" />
               </div>
 
               <div className="form-group">
                 <label htmlFor="subject">Subject</label>
-                <input type="text" id="subject" required placeholder="Inquiry / Opportunity" />
+                <input type="text" id="subject" name="subject" required placeholder="Inquiry / Opportunity" />
               </div>
 
               <div className="form-group">
                 <label htmlFor="message">Message</label>
-                <textarea id="message" rows="5" required placeholder="How can I help you?"></textarea>
+                <textarea id="message" name="message" rows="5" required placeholder="How can I help you?"></textarea>
               </div>
 
               <button type="submit" className="btn btn-primary">
