@@ -3,8 +3,26 @@ export default function About() {
     <main>
       <section className="page-header">
         <div className="container">
-          <h1>About Me</h1>
-          <p className="lead">Dedicated to connecting technology, data, and patient-centered care.</p>
+          <div className="about-header">
+            <div>
+              <h1>About Me</h1>
+              <p className="lead">Dedicated to connecting technology, data, and patient-centered care.</p>
+              <a className="btn btn-primary" href="public/Resume2026.pdf" target="_blank" rel="noreferrer">
+                View My Resume
+              </a>
+            </div>
+            <div className="headshot-frame">
+              <img
+                src="/images/ProfileHeadshot.jpg"
+                alt="Professional headshot"
+                onError={(event) => {
+                  event.currentTarget.style.display = 'none';
+                  event.currentTarget.nextElementSibling.hidden = false;
+                }}
+              />
+              <span className="headshot-fallback" hidden>JB</span>
+            </div>
+          </div>
         </div>
       </section>
 
