@@ -143,6 +143,24 @@ color: var(--text-secondary);
 margin-bottom: 2rem;
 }
 
+.contact-links {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem 1.5rem;
+margin-top: -0.75rem;
+}
+
+.contact-links a {
+color: var(--accent-color);
+font-weight: 600;
+text-decoration: none;
+}
+
+.contact-links a:hover,
+.contact-links a:focus-visible {
+text-decoration: underline;
+}
+
 .about-header {
 display: flex;
 align-items: center;

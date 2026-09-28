@@ -23,6 +23,11 @@ export default function Contact() {
         <div className="container">
           <h1>Contact Me</h1>
           <p className="lead">Let’s connect to discuss digital health, clinical workflows, or collaboration opportunities.</p>
+          <div className="contact-links">
+            <a href="mailto:jbacnis1@my.centennialcollege.ca">jbacnis1@my.centennialcollege.ca</a>
+            <a href="https://www.linkedin.com/in/jordanbacnis/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+            <br />
+          </div>
         </div>
       </section>
 
