@@ -8,7 +8,7 @@ export default function About() {
               <p className="about-name">Jordan Bacnis</p>
               <h1>About Me</h1>
               <p className="lead">Dedicated to connecting technology, data, and patient-centered care.</p>
-              <a className="btn btn-primary" href="public/Resume2026.pdf" target="_blank" rel="noreferrer">
+              <a className="btn btn-primary" href="/Resume2026.pdf" target="_blank" rel="noreferrer">
                 View My Resume
               </a>
             </div>
