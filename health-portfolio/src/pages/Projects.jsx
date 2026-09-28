@@ -8,7 +8,7 @@ export default function Projects() {
       return undefined;
     }
 
-    const closeOnEscape = (event) => {
+    const closeOnEscape = (event) => { // used to close the lightbox when the Escape key is pressed
       if (event.key === 'Escape') {
         setSelectedImage(null);
       }

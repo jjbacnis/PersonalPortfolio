@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { // when submitting the form, this function will open the user's default email client with a pre-filled email containing the form data
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
