@@ -21,6 +21,34 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="container">
+          <div className="grid grid-2">
+            <div>
+              <p className="about-name">A little about me</p>
+              <h2>Healthcare-minded, technology-focused</h2>
+              <p>
+                I&apos;m Jordan Bacnis, a Health Informatics student at Centennial College interested in how thoughtful technology can make healthcare clearer, more connected, and easier to navigate.
+              </p>
+              <p>
+                I bring together an understanding of clinical workflows, health data, and user needs to explore practical solutions that support both care teams and the people they serve.
+              </p>
+            </div>
+            <div className="card">
+              <h2>What this portfolio shows</h2>
+              <p>
+                This portfolio is a snapshot of how I think and work: curious about the problem, careful with the data, and focused on outcomes that matter in real healthcare settings.
+              </p>
+              <ul className="styled-list">
+                <li>Applied projects in health informatics and digital health</li>
+                <li>Ways I analyze workflows, systems, and healthcare data</li>
+                <li>A growing foundation for a career improving patient-centered care</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section bg-light">
         <div className="container">
           <br />
