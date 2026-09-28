@@ -1,0 +1,508 @@
+/* STREAMING_CHUNK:Defining color variables and theme defaults... */
+:root {
+--bg-color: #f8fafc;
+--surface-color: #ffffff;
+--text-primary: #1e293b;
+--text-secondary: #64748b;
+--accent-color: #0d9488;
+--accent-light: #ccfbf1;
+--border-color: #e2e8f0;
+--max-width: 900px;
+--radius: 8px;
+}
+
+/* STREAMING_CHUNK:Setting up layout reset and body styling... */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+overflow-y: scroll;
+}
+
+body {
+font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+background-color: var(--bg-color);
+color: var(--text-primary);
+line-height: 1.6;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+/* STREAMING_CHUNK:Styling navigation bar and header... */
+header {
+background-color: var(--surface-color);
+border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+max-width: var(--max-width);
+margin: 0 auto;
+padding: 1.25rem 1.5rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+font-size: 1.15rem;
+font-weight: 700;
+color: var(--text-primary);
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+.logo img {
+width: 70px;
+height: 60px;
+}
+
+
+nav ul {
+display: flex;
+gap: 1rem;
+list-style: none;
+}
+
+nav a {
+text-decoration: none;
+color: var(--text-secondary);
+font-weight: 500;
+font-size: 0.925rem;
+padding: 0.4rem 0.65rem;
+border-radius: 6px;
+transition: all 0.2s ease;
+}
+
+nav a:hover {
+color: var(--text-primary);
+background-color: var(--accent-light);
+}
+
+nav a.active {
+color: var(--accent-color);
+background-color: var(--accent-light);
+font-weight: 600;
+}
+
+/* STREAMING_CHUNK:Styling main content area and typography... */
+main {
+max-width: var(--max-width);
+width: 100%;
+margin: 0 auto;
+padding: 3.5rem 1.5rem;
+flex: 1;
+}
+
+.badge {
+display: inline-block;
+background-color: var(--accent-light);
+color: var(--accent-color);
+font-size: 0.8rem;
+font-weight: 600;
+padding: 0.25rem 0.65rem;
+border-radius: 4px;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+margin-bottom: 1rem;
+}
+
+h1 {
+font-size: 2.5rem;
+font-weight: 700;
+line-height: 1.25;
+margin-bottom: 1rem;
+letter-spacing: -0.02em;
+}
+
+h2 {
+font-size: 1.5rem;
+font-weight: 600;
+margin-bottom: 1.25rem;
+}
+
+h3 {
+font-size: 1.15rem;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+
+p {
+color: var(--text-secondary);
+margin-bottom: 1.25rem;
+font-size: 1.025rem;
+}
+
+.lead {
+font-size: 1.2rem;
+color: var(--text-secondary);
+margin-bottom: 2rem;
+}
+
+.contact-links {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem 1.5rem;
+margin-top: -0.75rem;
+}
+
+.contact-links a {
+color: var(--accent-color);
+font-weight: 600;
+text-decoration: none;
+}
+
+.contact-links a:hover,
+.contact-links a:focus-visible {
+text-decoration: underline;
+}
+
+.about-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 3rem;
+}
+
+.about-header > div:first-child {
+flex: 1;
+}
+
+.about-name {
+color: var(--accent-color);
+font-size: 0.95rem;
+font-weight: 700;
+letter-spacing: 0.08em;
+margin-bottom: 0.5rem;
+text-transform: uppercase;
+}
+
+.headshot-frame {
+width: 180px;
+height: 180px;
+flex: 0 0 180px;
+overflow: hidden;
+border: 6px solid var(--accent-light);
+border-radius: 50%;
+background-color: var(--accent-color);
+box-shadow: 0 0 0 1px var(--border-color);
+}
+
+.headshot-frame img,
+.headshot-fallback {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.headshot-fallback {
+display: flex;
+align-items: center;
+justify-content: center;
+color: #ffffff;
+font-size: 3rem;
+font-weight: 700;
+}
+
+@media (max-width: 600px) {
+.about-header {
+align-items: flex-start;
+gap: 1.5rem;
+}
+
+.headshot-frame {
+width: 110px;
+height: 110px;
+flex-basis: 110px;
+border-width: 4px;
+}
+
+.headshot-fallback {
+font-size: 2rem;
+}
+}
+
+/* STREAMING_CHUNK:Styling cards and grid layouts... */
+.grid {
+display: grid;
+gap: 1.5rem;
+margin-top: 1.5rem;
+}
+
+.grid-2 {
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-3 {
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+background-color: var(--surface-color);
+border: 1px solid var(--border-color);
+border-radius: var(--radius);
+padding: 1.75rem;
+}
+
+.project-list {
+display: flex;
+flex-direction: column;
+gap: 2rem;
+}
+
+.project-item {
+display: grid;
+grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
+background-color: var(--surface-color);
+border: 1px solid var(--border-color);
+border-radius: var(--radius);
+overflow: hidden;
+}
+
+.project-media {
+position: relative;
+padding: 0;
+border: 0;
+font: inherit;
+color: inherit;
+cursor: zoom-in;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 280px;
+background-color: var(--bg-color);
+}
+
+.project-media:focus-visible {
+outline: 3px solid var(--accent-color);
+outline-offset: -3px;
+}
+
+.project-media img {
+display: block;
+width: 100%;
+height: 100%;
+min-height: 280px;
+object-fit: cover;
+}
+
+.project-zoom-hint {
+position: absolute;
+right: 1rem;
+bottom: 1rem;
+padding: 0.4rem 0.65rem;
+border-radius: 4px;
+background-color: rgba(15, 23, 42, 0.82);
+color: #ffffff;
+font-size: 0.8rem;
+font-weight: 600;
+opacity: 0;
+transform: translateY(4px);
+transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.project-media:hover .project-zoom-hint,
+.project-media:focus-visible .project-zoom-hint {
+opacity: 1;
+transform: translateY(0);
+}
+
+.project-lightbox {
+position: fixed;
+inset: 0;
+z-index: 10;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 2rem;
+background-color: rgba(15, 23, 42, 0.88);
+cursor: zoom-out;
+}
+
+.project-lightbox img {
+display: block;
+max-width: 95vw;
+max-height: 90vh;
+object-fit: contain;
+box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.35);
+}
+
+.lightbox-close {
+position: absolute;
+top: 1rem;
+right: 1.25rem;
+width: 2.5rem;
+height: 2.5rem;
+border: 1px solid rgba(255, 255, 255, 0.5);
+border-radius: 50%;
+background-color: rgba(15, 23, 42, 0.7);
+color: #ffffff;
+font-size: 1.75rem;
+line-height: 1;
+cursor: pointer;
+}
+
+.lightbox-close:focus-visible {
+outline: 3px solid #ffffff;
+outline-offset: 3px;
+}
+
+.project-content {
+padding: 2rem;
+}
+
+.project-content h2 {
+margin-top: 0.75rem;
+margin-bottom: 0.9rem;
+}
+
+.project-objective {
+color: var(--text-primary);
+}
+
+.project-objective strong {
+color: var(--accent-color);
+}
+
+.card-tag,
+.tech-badge {
+display: inline-block;
+font-size: 0.8rem;
+font-weight: 600;
+}
+
+.card-tag {
+color: var(--accent-color);
+text-transform: uppercase;
+letter-spacing: 0.05em;
+}
+
+.card-footer {
+display: flex;
+flex-wrap: wrap;
+gap: 0.5rem;
+margin-top: 1.25rem;
+}
+
+.tech-badge {
+padding: 0.3rem 0.6rem;
+border: 1px solid var(--border-color);
+border-radius: 4px;
+color: var(--text-secondary);
+background-color: var(--bg-color);
+}
+
+.btn {
+display: inline-block;
+background-color: var(--accent-color);
+color: #ffffff;
+padding: 0.7rem 1.3rem;
+border-radius: 6px;
+font-weight: 500;
+font-size: 0.95rem;
+text-decoration: none;
+border: 1px solid var(--accent-color);
+transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+opacity: 0.9;
+}
+
+.btn-outline {
+background-color: transparent;
+color: var(--text-primary);
+border: 1px solid var(--border-color);
+margin-left: 0.5rem;
+}
+
+.btn-outline:hover {
+border-color: var(--accent-color);
+color: var(--accent-color);
+}
+
+.tag {
+display: inline-block;
+background-color: var(--bg-color);
+border: 1px solid var(--border-color);
+padding: 0.25rem 0.5rem;
+border-radius: 4px;
+font-size: 0.8rem;
+color: var(--text-secondary);
+margin-right: 0.4rem;
+margin-top: 0.5rem;
+}
+
+/* STREAMING_CHUNK:Styling form and contact elements... */
+.form-group {
+margin-bottom: 1.25rem;
+}
+
+.form-group label {
+display: block;
+font-size: 0.875rem;
+font-weight: 500;
+margin-bottom: 0.35rem;
+}
+
+.form-group input,
+.form-group textarea {
+width: 100%;
+padding: 0.65rem 0.85rem;
+border-radius: 6px;
+border: 1px solid var(--border-color);
+background-color: var(--surface-color);
+color: var(--text-primary);
+font-family: inherit;
+font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+outline: 2px solid var(--accent-color);
+border-color: transparent;
+}
+
+/* STREAMING_CHUNK:Styling footer... */
+footer {
+border-top: 1px solid var(--border-color);
+background-color: var(--surface-color);
+padding: 1.75rem 1.5rem;
+text-align: center;
+color: var(--text-secondary);
+font-size: 0.875rem;
+}
+
+/* STREAMING_CHUNK:Responsive breakpoint adjustments... */
+@media (max-width: 650px) {
+.nav-container {
+flex-direction: column;
+gap: 1rem;
+}
+nav ul {
+flex-wrap: wrap;
+justify-content: center;
+}
+h1 {
+font-size: 2rem;
+}
+
+.project-item {
+grid-template-columns: 1fr;
+}
+
+.project-media,
+.project-media img {
+min-height: 0;
+height: auto;
+aspect-ratio: 16 / 10;
+}
+
+.project-content {
+padding: 1.5rem;
+}
+}
