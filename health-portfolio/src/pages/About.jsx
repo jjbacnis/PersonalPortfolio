@@ -7,7 +7,7 @@ export default function About() {
             <div>
               <p className="about-name">Jordan Bacnis</p>
               <h1>About Me</h1>
-              <p className="lead">Dedicated to connecting technology, data, and patient-centered care.</p>
+              <p className="lead">I&apos;m building a career at the intersection of healthcare, technology, and thoughtful problem-solving.</p>
               <a className="btn btn-primary" href="/Resume2026.pdf" target="_blank" rel="noreferrer">
                 View My Resume
               </a>
