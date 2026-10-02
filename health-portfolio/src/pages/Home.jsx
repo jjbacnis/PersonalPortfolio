@@ -8,7 +8,7 @@ export default function Home() {
           <span className="badge">Health Informatics Student</span>
           <h1>Bridging Clinical Workflows with Modern Data Solutions</h1>
           <p className="hero-sub">
-            Hi, I'm Jordan, a Health Informatics student at Centennial College with hands-on experience in digital health, clinical workflows, and applied research. Passionate about improving patient outcomes through data-driven decision-making and user-centered healthcare technology.
+            I help turn complex clinical workflows and health data into practical digital solutions that support clearer decisions, smoother systems, and better care.
           </p>
           <div className="hero-actions">
             <Link to="/projects" className="btn btn-primary">
