@@ -1,5 +1,6 @@
 let mongoose = require("mongoose");
 
+// Create a schema for the references collection
 let referencesModel =  mongoose.Schema(
     {
         name: String,
@@ -8,7 +9,7 @@ let referencesModel =  mongoose.Schema(
         company: String
     }
 );
-
+ // Remove the _id field when returning a JSON response
 referencesModel.set("toJSON", {
     virtuals: true,
     versionKey: false,
@@ -17,4 +18,5 @@ referencesModel.set("toJSON", {
     }
 });
 
+// Export the model for use in other parts of the application
 module.exports = mongoose.model("Reference", referencesModel);
