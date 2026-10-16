@@ -1,9 +1,18 @@
-const mongoose = require('mongoose');
-const servicesSchema =  new mongoose.Schema({
-    title: {
-        type: String
-    },
-    description: {
-        type: String
+let mongoose = require("mongoose");
+
+let servicesModel = mongoose.Schema(
+    {
+        title: String,
+        description: String
+    }
+);
+
+servicesModel.set("toJSON", {
+    virtuals: true,
+    versionKey: false,
+    transform: function (doc, ret) { 
+        delete ret._id 
     }
 });
+
+module.exports = mongoose.model("Services", servicesModel);

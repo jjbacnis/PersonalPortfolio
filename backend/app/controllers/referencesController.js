@@ -1,98 +1,97 @@
-const reference = require("../models/referencesModel");
+let ReferencesModel = require("../models/referencesModel");
 
-module.exports.getAll = function (req, res, next) {
+module.exports.processAdd = async function (req, res, next) {
     try {
-        const references = async () => await reference.find();
+        let newReference = ReferencesModel(req.body);
 
-        res.status(200).json({
-            success: true,
-            message: "References retrieved successfully.",
-            data: references.map(formatDocument)
-        });
-    } catch (error) {
-        next(error);
-    }
-};
-
-module.exports.getById = function (req, res, next) {
-    try {
-        const reference = async () => await reference.findById(req.params.id);
-
-        if (!reference) {
-            return res.status(404).json({
-                success: false,
-                message: "Reference not found."
-            });
-        }
-
-        res.status(200).json({
-            success: true,
-            message: "Reference retrieved successfully.",
-            data: formatDocument(reference)
-        });
-    } catch (error) {
-        next(error);
-    }
-};
-
-module.exports.add = function (req, res, next) {
-    try {
-        const reference = async () => await reference.create(req.body);
-
-        res.status(201).json({
-            success: true,
-            message: "Reference added successfully.",
-            data: formatDocument(reference)
-        });
-    } catch (error) {
-        next(error);
-    }
-};
-
-module.exports.update = function (req, res, next) {
-    try {
-        const reference = async () => await reference.findByIdAndUpdate(
-            req.params.id,
-            req.body,
+        let result = await ReferencesModel.create(newReference);
+        console.log("Reference added successfully:", result);
+        res.json(
             {
-                new: true,
-                runValidators: true
+                success: true,
+                message: "Reference added successfully.",
+                data: result
             }
         );
-
-        if (!reference) {
-            return res.status(404).json({
-                success: false,
-                message: "Reference not found."
-            });
-        }
-
-        res.status(200).json({
-            success: true,
-            message: "Reference updated successfully.",
-            data: formatDocument(reference)
-        });
     } catch (error) {
         next(error);
     }
 };
 
-module.exports.delete = function (req, res, next) {
+module.exports.referencesList = async function (req, res, next) {
     try {
-        const reference = async () => await reference.findByIdAndDelete(req.params.id);
+        let list = await ReferencesModel.find({});
 
-        if (!reference) {
-            return res.status(404).json({
-                success: false,
-                message: "Reference not found."
-            });
+        res.json(
+            {
+                success: true,
+                message: "References List Retrieved Successfully",
+                data: list
+            }
+        );
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+};
+
+module.exports.getByID = async function (req, res, next) {
+    try {
+        let referenceID = req.params.id; // or insert 'req.params.id' into the findOne query
+        let reference = await ReferencesModel.findOne({_id: referenceID});
+
+        res.json(
+            {
+                success: true,
+                message: "Reference Retrieved Successfully",
+                data: reference
+            }
+        );
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+};
+
+module.exports.processEdit = async function (req, res, next) {
+    try {
+        let referenceID = req.params.id;
+        let updatedReference = ReferencesModel(req.body);
+        updatedReference._id = referenceID; // Ensure the ID is set for the update operation
+
+        let result = await ReferencesModel.updateOne({_id: referenceID}, updatedReference);
+        console.log(result);
+
+        res.json(
+            {
+                success: true,
+                message: "Reference Updated Successfully"
+            }
+        );
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+};
+
+module.exports.processDelete = async function (req, res, next) {
+    try {
+        let result = await ReferencesModel.deleteOne({_id: req.params.id});
+        console.log(result);
+
+        if (result.deletedCount > 0) {
+            res.json(
+                {
+                    success: true,
+                    message: "Reference Deleted Successfully",
+                }
+            );
+        } else {
+            throw new Error("Reference not found or already deleted."
+            );
         }
-
-        res.status(200).json({
-            success: true,
-            message: "Reference deleted successfully."
-        });
-    } catch (error) {
-        next(error);
+    } catch (err) {
+        console.log(err);
+        next(err);
     }
 };
