@@ -1,25 +1,20 @@
-const mongoose = require("mongoose");
+let mongoose = require("mongoose");
 
-const referenceSchema = new mongoose.Schema(
-{
-    name: {
-        type: String
-    },
-    
-    testimonial: {
-        type: String
-    },
-    position: {
-        type: String
-    },
-
-    company: {
-        type: String
+let referencesModel =  mongoose.Schema(
+    {
+        name: String,
+        testimonial: String,
+        position: String,
+        company: String
     }
-},
-{
-    timestamps: true
-}
 );
 
-module.exports = mongoose.model("Reference", referenceSchema);
+referencesModel.set("toJSON", {
+    virtuals: true,
+    versionKey: false,
+    transform: function (doc, ret) { 
+        delete ret._id 
+    }
+});
+
+module.exports = mongoose.model("Reference", referencesModel);

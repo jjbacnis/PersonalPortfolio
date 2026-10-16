@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-const referencesController = require("../controllers/referencesController");
+const referencesController = require("../controllers/referencesController.js");
 
-router.get("/api/references", referencesController.getAll);
-router.get("/api/references/:id", referencesController.getById);
-router.post("/api/references", referencesController.add);
-router.put("/api/references/:id", referencesController.update);
-router.delete("/api/references/:id", referencesController.delete);
+router.post("/", referencesController.processAdd);
+router.get("/", referencesController.referencesList);
+router.get("/:id", referencesController.getByID);
+router.put("/:id", referencesController.processEdit);
+router.delete("/:id", referencesController.processDelete);
 
 module.exports = router;

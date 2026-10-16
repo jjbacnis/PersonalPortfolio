@@ -1,15 +1,24 @@
-const mongoose = require('mongoose');
-const projectsSchema =  new mongoose.Schema({
-    title: {
-        type: String
+let mongoose = require('mongoose');
+
+let projectsModel = mongoose.Schema(
+    {
+        title: String,
+        completion: Date,
+        description: String,
+        image: String,
     },
-    completion: {
-        type: String
-    },
-    description: {
-        type: String
-    },
-    image: {
-        type: String
+    {
+        collection: "projects",
+    }
+);
+
+// Ensure virtual fields are serialized.
+projectsModel.set('toJSON', {
+    virtuals: true,
+    versionKey: false,
+    transform: function (doc, ret) { 
+        delete ret._id 
     }
 });
+
+module.exports = mongoose.model('Projects', projectsModel);

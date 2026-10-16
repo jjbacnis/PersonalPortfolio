@@ -3,7 +3,11 @@ var createError = require('http-errors');
 var logger = require('morgan');
 var cors = require('cors');
 
-var indexRouter = require('../app/routers/indexRouter.js');
+// Import routers
+var referencesRouter = require('../app/routers/referencesRouter.js');
+var projectsRouter = require('../app/routers/projectsRouter.js');
+var servicesRouter = require('../app/routers/servicesRouter.js');
+var usersRouter = require('../app/routers/usersRouter.js');
 
 const app = express();
 app.use(cors());
@@ -12,7 +16,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
-app.use('/', indexRouter);
+app.use('/api/references', referencesRouter);
+app.use('/api/projects', projectsRouter);
+app.use('/api/services', servicesRouter);
+app.use('/api/users', usersRouter);
 
 
 // catch 404 and forward to error handler
