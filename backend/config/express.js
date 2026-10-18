@@ -4,6 +4,7 @@ var logger = require('morgan');
 var cors = require('cors');
 
 // Import routers
+var indexRouter = require('../app/routers/indexRouter.js');
 var referencesRouter = require('../app/routers/referencesRouter.js');
 var projectsRouter = require('../app/routers/projectsRouter.js');
 var servicesRouter = require('../app/routers/servicesRouter.js');
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
+app.get('/', indexRouter);
 app.use('/api/references', referencesRouter);
 app.use('/api/projects', projectsRouter);
 app.use('/api/services', servicesRouter);

@@ -7,7 +7,7 @@ var debug = require('debug')('backend:server');
  * Listen on provided port, on all network interfaces.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3000'); // Initializes on port 3000 if no port is provided in the environment variables
 app.set('port', port);
 
 configDB();

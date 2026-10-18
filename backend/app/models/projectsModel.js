@@ -5,15 +5,15 @@ let projectsModel = mongoose.Schema(
         title: String,
         completion: Date,
         description: String,
-        image: String,
+        image: String
     },
     {
         collection: "projects",
     }
 );
 
-// Ensure virtual fields are serialized.
-projectsModel.set('toJSON', {
+// Remove the _id field when returning a JSON response
+projectsModel.set("toJSON", {
     virtuals: true,
     versionKey: false,
     transform: function (doc, ret) { 

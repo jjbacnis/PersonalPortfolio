@@ -38,7 +38,7 @@ module.exports.projectsList = async function (req, res, next) {
 
 module.exports.getByID = async function (req, res, next) {
     try {
-        let projectID = req.params.id; // or insert 'req.body.id' into the findOne query
+        let projectID = req.params.id; // or insert 'req.params.id' into the findOne query
         let project = await ProjectsModel.findOne({_id: projectID});
 
         res.json(
