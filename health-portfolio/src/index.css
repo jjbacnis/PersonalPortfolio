@@ -786,6 +786,136 @@ p a:hover {
 }
 
 /* ==========================================================================
+   Admin dashboard
+   ========================================================================== */
+
+.admin-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-tab {
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--surface-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.65rem 1.1rem;
+  font-weight: 700;
+}
+
+.admin-tab.active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+  box-shadow: var(--shadow-accent);
+}
+
+.admin-error {
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #f0a3a3;
+  border-radius: var(--radius);
+  background: #fff1f1;
+  color: #9f1239;
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.admin-form-card,
+.admin-list-card {
+  overflow: visible;
+}
+
+.admin-form-card h2,
+.admin-list-heading h2 {
+  margin-top: 0;
+}
+
+.admin-form-actions,
+.admin-row-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-count {
+  min-width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+.admin-empty {
+  color: var(--text-secondary);
+  margin: 1rem 0 0;
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.admin-table th,
+.admin-table td {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: top;
+}
+
+.admin-table th {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-edit,
+.admin-delete {
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+  padding: 0.45rem 0.65rem;
+  font-weight: 700;
+}
+
+.admin-edit {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.admin-delete {
+  background: #fff1f1;
+  color: #9f1239;
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 
@@ -819,6 +949,10 @@ footer a:hover {
 @media (max-width: 900px) {
   main {
     padding: var(--space-5) 1.5rem;
+  }
+
+  .admin-layout {
+    grid-template-columns: 1fr;
   }
 
   main section + section {
