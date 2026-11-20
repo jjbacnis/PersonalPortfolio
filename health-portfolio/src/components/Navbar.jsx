@@ -43,6 +43,11 @@ export default function Navbar() {
                 Contact
               </Link>
             </li>
+            <li>
+              <Link to="/admin" className={isActive('/admin') ? 'active' : ''}>
+                Admin
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
