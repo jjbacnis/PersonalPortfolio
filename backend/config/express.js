@@ -11,7 +11,9 @@ var servicesRouter = require('../app/routers/servicesRouter.js');
 var usersRouter = require('../app/routers/usersRouter.js');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://jbsdomain.onrender.com/'
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

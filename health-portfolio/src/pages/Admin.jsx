@@ -61,15 +61,20 @@ export default function Admin() {
 
   const resource = resources[activeResource];
 
-  async function request(url, options = {}) {
-    const response = await fetch(url, {
+  const API_URL = import.meta.env.VITE_API_URL || '';
+
+  async function request(path, options = {}) {
+    const response = await fetch(`${API_URL}${path}`, {
       headers: { 'Content-Type': 'application/json', ...options.headers },
       ...options,
     });
+
     const payload = await response.json().catch(() => ({}));
+
     if (!response.ok || payload.success === false) {
       throw new Error(payload.message || 'The backend request failed.');
     }
+
     return payload;
   }
 
