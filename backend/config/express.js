@@ -12,7 +12,7 @@ var usersRouter = require('../app/routers/usersRouter.js');
 
 const app = express();
 app.use(cors({
-  origin: 'https://jbsdomain.onrender.com/'
+  origin: process.env.FRONTEND_URL || 'https://jbsdomain.onrender.com'
 }));
 app.use(logger('dev'));
 app.use(express.json());
